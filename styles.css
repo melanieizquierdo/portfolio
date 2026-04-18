@@ -60,6 +60,15 @@ footer {
 }
 
 
+img, .work-item {
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+img {
+    pointer-events: none;
+}
+
 /* =========================
    NAV
    ========================= */
