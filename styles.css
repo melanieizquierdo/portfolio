@@ -169,16 +169,15 @@ nav a:hover::after {
 
 .text-block h1 {
     margin-bottom: .5px;
-
-    /* font-size: 2.4rem; */
+    font-size: 3.3rem;
 }
 
-.text-block p:first-of-type {
+/* .text-block p:first-of-type 
     margin-top: 0;
     font-weight: bold;
     margin-bottom: 18px;
     /* text-decoration: underline; */
-}
+ */
 
 .text-block p {
     margin-top: 25px;
@@ -191,7 +190,7 @@ nav a:hover::after {
 
 footer {
     padding-bottom: 10px;
-    padding-top: 30px;
+    padding-top: 50px;
     font-size: .8em;
     text-align: center;
 }
@@ -279,7 +278,24 @@ footer {
    RESPONSIVE DESIGN
    ========================= */
 
+
 @media (max-width: 768px) {
+
+    html {
+        scroll-snap-type: none;
+        scroll-behavior: smooth;
+    }
+    /* body {
+        overflow-y: auto;
+    } */
+    .hero,
+    .blank-section,
+    .portfolio,
+    footer {
+        scroll-snap-align: none;
+        scroll-snap-stop: normal;
+    }
+    
     .portfolio {
         grid-template-columns: repeat(2, 1fr);
         gap: 50px 25px;
@@ -331,7 +347,7 @@ footer {
     }
 
     .blank-section h1 {
-        font-size: 1.6rem;
+        font-size: 1.9rem;
     }
 }
 
@@ -348,7 +364,7 @@ footer {
 
     nav {
         padding: 12px 18px;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
     }
 
     .welcome {
