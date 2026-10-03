@@ -7,7 +7,7 @@ body {
 height: 100%;
 margin: 0;
 font-family: "IBM Plex Mono";
-background: hsl(20, 100%, 99%);
+background: hsl(75, 15%, 95%);
 line-height: 1.4;
 text-align: center;
 cursor: auto;
@@ -15,10 +15,12 @@ overflow-y: auto;
 }
 
 .page {
-max-width: 1300px;
-margin: 0 auto;
-padding: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 30px;
+    box-sizing: border-box;
 }
+
 
 /* .hero,
 .blank-section,
@@ -64,6 +66,138 @@ user-select: none;
 img {
 pointer-events: none;
 }
+/* =========================
+   NAME NAV
+========================= */
+
+.name-nav {
+    position: fixed;
+
+    top: 30px;
+    right: max(30px, calc((100vw - 1300px) / 2 + 30px));
+
+    z-index: 1000;
+
+    text-align: left;
+
+    font-size: 0.77rem;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+
+    opacity: 1;
+
+    transition: opacity 0.4s ease;
+}
+
+
+
+
+
+
+
+/* =========================
+   NAME
+========================= */
+
+.name-nav a {
+    display: block;
+
+    width: fit-content;
+
+    text-decoration: none;
+
+    color: rgb(47, 47, 47);
+
+    font-size: inherit;
+
+    transition: color 0.4s ease;
+
+    position: relative;
+}
+
+
+/* =========================
+   SUBTITLE
+========================= */
+
+.name-subtitle {
+    display: block;
+
+    margin-top: 2px;
+
+    text-align: left;
+
+    font-size: inherit;
+
+    letter-spacing: 0.05em;
+
+    line-height: 1.3;
+
+    color: rgb(145, 145, 145);
+
+    transition: color 0.4s ease;
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.name-nav a::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -1px;
+
+    width: 0%;
+    height: 1px;
+
+    background: currentColor;
+
+    transition: width 0.3s ease;
+}
+
+.name-nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   PORTFOLIO
+========================= */
+
+.name-nav.portfolio-active a {
+    color: hsl(20, 100%, 99%);
+}
+
+.name-nav.portfolio-active .name-subtitle {
+    color: rgba(255, 255, 255, 0.58);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .name-nav {
+        top: 20px;
+        right: 20px;
+
+        font-size: 0.65rem;
+
+        text-align: left;
+    }
+
+    .name-subtitle {
+        font-size: inherit;
+    }
+
+}
+
 
 /* =========================
 NAV
@@ -72,7 +206,7 @@ NAV
 nav {
 position: fixed;
 bottom: 80px;
-left: max(20px, calc((100vw - 1300px) / 2));
+right: max(20px, calc((100vw - 1300px) / 2));
 
 width: 90px;
 height: 90px;
@@ -131,29 +265,30 @@ nav a {
 }
 
 nav.portfolio-active a {
-    color: hsl(20, 100%, 99%);
+    color: hsl(75, 15%, 95%);
 }
 
 
 nav a::after {
-content: "";
+    content: "";
 
-position: absolute;
+    position: absolute;
 
-left: 0;
-bottom: -1px;
+    left: 0;
+    bottom: -1px;
 
-width: 0%;
-height: 1px;
+    width: 0%;
+    height: 1px;
 
-background: black;
+    background: currentColor;
 
-transition: width 0.3s ease;
-
+    transition: width 0.3s ease;
 }
+
 nav a:hover::after {
-width: 100%;
+    width: 100%;
 }
+
 
 .nav-links {
 display: flex;
@@ -165,21 +300,30 @@ HERO
 ========================= */
 
 .hero {
-height: 100vh;
-width: 100%;
-position: relative;
+    height: 200vh;
+    width: 100%;
+    position: relative;
 }
 
 .center-wrap {
-height: 100%;
+    position: fixed;
 
-display: flex;
-justify-content: center;
-align-items: center;
+    top: 0;
+    left: 0;
 
-transform: translateY(-10vh);
+    width: 100vw;
+    height: 100vh;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: translateY(-10vh);
+
+    z-index: 1;
 }
+
+
 .welcome {
 font-size: 5.5rem;
 line-height: 1.2;
@@ -191,69 +335,164 @@ transition: opacity 1.2s ease;
 
 }
 .scroll-hint {
-position: absolute;
+    position: fixed;
 
-bottom: 90px;
+    bottom: 90px;
 
-width: 100%;
+    left: 0;
+    width: 100vw;
 
-text-align: center;
+    text-align: center;
 
-font-size: .95rem;
-letter-spacing: 0.05em;
+    font-size: .95rem;
+    letter-spacing: 0.05em;
 
-opacity: 0;
+    opacity: 0;
 
-transform: translateY(10px);
+    transform: translateY(10px);
 
-transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
 
+    z-index: 2;
+
+    pointer-events: none;
 }
+
 /* =========================
 BLANK SECTION
 ========================= */
 
 .blank-section {
-/* min-height: 0;
-height: 85vh; */
-min-height: 100vh;
+    min-height: 120vh;
     height: auto;
-    
-box-sizing: border-box;
 
-padding-top: 10vh;
-padding-bottom: 30vh;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
 
-display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-align-items: flex-start;
-justify-content: space-between;
+    gap: 150px;
 
-gap: 170px;
+    text-align: left;
+    flex-direction: row;
 
-text-align: left;
-
-flex-direction: row;
-
-position: relative;
-
-z-index: 1;
-
+    position: relative;
+    z-index: 7;
+    background: transparent;
 }
+
+
+
+/* =========================================================
+   FULL-SCREEN DARK TRANSITION
+========================================================= */
+
+.profile-transition {
+    position: fixed;
+
+    top: 50%;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    margin: 0;
+    padding: 0;
+
+    background: #1d1d1e;
+
+    transform: translateY(-50%) scaleY(0);
+    transform-origin: center center;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+    will-change: transform, opacity;
+
+    opacity: 1;
+}
+
+
+
+/* =========================================================
+   CENTER LOGO TRANSITION
+========================================================= */
+
+.transition-image {
+    position: fixed;
+
+    top: 50%;
+    left: 50%;
+
+    margin: 0;
+    padding: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(0.35);
+
+    transform-origin: center center;
+
+    z-index: 6;
+
+    opacity: 0;
+
+    /* JS controls this */
+    filter: brightness(1);
+
+    pointer-events: none;
+
+    will-change: transform, opacity, filter;
+}
+
+
+
+
+.transition-image img {
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: none;
+    max-height: none;
+
+    object-fit: none;
+
+    margin: 0;
+    padding: 0;
+
+    pointer-events: none;
+    user-select: none;
+}
+
+
+
+.blank-section .text-block {
+    flex: 1;
+    min-width: 0;
+}
+
+
+.blank-section .text-block h1,
+.blank-section .text-block p {
+    color: hsl(75, 15%, 95%);
+}
+
 .blank-section img {
-width: clamp(220px, 23vw, 300px);
+    width: clamp(220px, 23vw, 300px);
+    height: auto;
 
-height: auto;
+    flex-shrink: 0;
 
-max-width: 100%;
-
-display: block;
-
-object-fit: contain;
-
+    object-fit: contain;
 }
+
 .blank-section.reveal {
 transition:
 opacity 1.2s ease,
@@ -275,7 +514,7 @@ transition-delay: 0.15s;
 
 
 .text-block h2 {
-    font-size: clamp(0.85rem, 1.5vw, 1.2rem);
+    font-size: clamp(0.85rem, 1.5vw, 1.4rem);
 
     width: 100%;
 
@@ -283,6 +522,8 @@ transition-delay: 0.15s;
     word-spacing: -0.04em;
 
     margin-bottom: 30px;
+    font-family: "Libre Caslon Condensed";
+    font-style: italic;
 }
 
 
@@ -293,12 +534,13 @@ line-height: 1.8;
 
 width: 90%;
 
+
 }
 /* =========================
 FOOTER
 ========================= */
 
-footer {
+/* footer {
 padding-bottom: 10px;
 padding-top: 50px;
 
@@ -306,26 +548,30 @@ font-size: .8em;
 
 text-align: center;
 
-}
+} */
 /* =========================================================
 PORTFOLIO
 ========================================================= */
 
 .portfolio {
-width: 100vw;
+    width: 100vw;
 
-height: 800vh;
+    height: 800vh;
 
-margin-left: calc(50% - 50vw);
-margin-right: calc(50% - 50vw);
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
 
-padding: 0;
+    padding: 0;
 
-position: relative;
+    position: relative;
 
-z-index: 2;
+    z-index: 10;
 
 }
+
+
+
+
 /* =========================================================
 PROJECT STACK
 ========================================================= */
@@ -354,7 +600,7 @@ overflow: hidden;
  */
 isolation: isolate;
 
-z-index: 2;
+z-index: 10;
 
 }
 /* =========================================================
@@ -401,7 +647,7 @@ filter: blur(30px);
 
 clip-path: inset(15px);
 
-opacity: 0.75;
+opacity: 0.9;
 
 /*
  * JavaScript changes translateY.
@@ -615,7 +861,7 @@ PROJECT TEXT
 
     height: 180px;
     overflow: hidden;
-    color: hsl(20, 100%, 99%);
+    color: hsl(75, 15%, 95%);
 
 }
 
@@ -661,8 +907,8 @@ RESPONSIVE
 @media (min-width: 1200px) {
 
     .blank-section {
-        min-height: 0;
-        height: 85vh;
+        min-height: 100vh;
+        height: auto;
         gap: 150px;
         padding-top: 10vh;
         padding-bottom: 5vh;
@@ -692,7 +938,7 @@ RESPONSIVE
 
     .blank-section {
         min-height: 100vh;
-        height: 100vh;
+    height: auto;
         gap: 60px;
 
         padding-top: 8vh;
@@ -749,7 +995,7 @@ RESPONSIVE
 
     .blank-section {
         min-height: 100vh;
-        height: 100vh;
+    height: auto;
 
         gap: 40px;
 
@@ -817,7 +1063,6 @@ RESPONSIVE
 /* -----------------------------------------
    MOBILE
 ----------------------------------------- */
-
 @media (max-width: 700px) {
 
     body {
@@ -832,8 +1077,9 @@ RESPONSIVE
         font-size: 0.75rem;
     }
 
-
-    /* HERO */
+    /* =========================
+       HERO
+    ========================= */
 
     .welcome {
         font-size: clamp(2.6rem, 13vw, 3.5rem);
@@ -849,76 +1095,86 @@ RESPONSIVE
     }
 
 
-    /* ABOUT */
+    /* =========================
+       ABOUT / BLANK SECTION
+    ========================= */
 
     .blank-section {
         min-height: 100vh;
-        height: 100vh;
+        height: auto;
 
         box-sizing: border-box;
 
+        display: flex;
         flex-direction: column;
 
-        gap: 15px;
-
-        padding-top: 4vh;
-        padding-bottom: 2vh;
-
-        /*
-         * Center everything horizontally
-         * once the image moves underneath.
-         */
         justify-content: flex-start;
-        align-items: center;
+        align-items: flex-start;
 
-        text-align: center;
+        gap: 30px;
 
-        overflow: hidden;
+        padding-top: 8vh;
+        padding-bottom: 8vh;
+
+        text-align: left;
+
+        position: relative;
+        z-index: 7;
+
+        overflow: visible;
     }
 
-    .text-block {
-        width: 100%;
+
+    /* PHOTO FIRST */
+
+    .blank-section img {
+        order: -1;
+
+        display: block;
+
+        width: 240px;
+        max-width: 70vw;
+        height: auto;
+
+        align-self: left;
+
+        flex-shrink: 0;
+    }
+
+
+    /* TEXT SECOND */
+
+    .blank-section .text-block {
+        order: 1;
+
+        width: 95%;
+
         flex: none;
-        text-align: center;
+
+        text-align: left;
     }
+
 
     .text-block h1 {
-        font-size: clamp(1.8rem, 3.4vw, 1.6rem);
+        font-size: clamp(1.4rem, 5.5vw, 1.5rem);
         line-height: 1.2;
     }
 
     .text-block h2 {
-        font-size: clamp(0.9rem, 1.7vw, 0.9rem);
+        font-size: 0.9rem;
         margin-bottom: 20px;
     }
 
     .text-block p {
         font-size: 0.82rem;
         line-height: 1.65;
-
         width: 90%;
-        margin: 20px auto 0;
-    }
-
-    /*
-     * IMAGE BELOW ABOUT TEXT
-     */
-
-    .blank-section img {
-        width: 240px;
-        max-width: 70vw;
-
-        height: auto;
-
-        align-self: center;
-
-        flex-shrink: 0;
-
-        margin-top: 5px;
     }
 
 
-    /* PORTFOLIO */
+    /* =========================
+       PORTFOLIO
+    ========================= */
 
     .portfolio {
         width: 100vw;
@@ -947,12 +1203,13 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
+        transform: translateY(30px);
     }
 
     .project-gallery {
-        width: 68vw;
-        height: 68vw;
-        flex: 0 0 68vw;
+        width: 72vw;
+        height: 72vw;
+        flex: 0 0 72vw;
     }
 
     .project-header {
@@ -977,6 +1234,7 @@ RESPONSIVE
         line-height: 1.6;
     }
 }
+
 
 
 

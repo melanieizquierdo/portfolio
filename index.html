@@ -9,13 +9,19 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
   <div class="page">
 
-
+<div class="name-nav"> <a href="index.html">MELANIE IZQUIERDO CARRILLO</a> <div class="name-subtitle">INTERDISCIPLINARY DESIGNER</div> 
+</div>
+<!-- <div class="welcome-description">
+    After exploring paths in film and theater, I found my way to design where storytelling and visual expression come together.
+</div> -->
 <nav>
     <!-- <a href="index.html">HOME</a>
     <a href="info.html">INFO</a> -->
@@ -33,16 +39,23 @@
     <div class="scroll-hint" id="scrollHint">scroll to explore</div>
 </header>
 
+<div class="profile-transition" id="profileTransition"></div>
 
-<section class="blank-section reveal">
+<div class="transition-image" id="transitionImage">
+    <img src="images/logo.svg" alt="logo">
+</div>
+
+<section class="blank-section">
+        
     <div class="text-block">
-        <h2>MELANIE IZQUIERDO CARRILLO</h2><h1>Interdisciplinary designer based in the Bay Area, specializing in UI/UX with experience in graphic design, profesional writing, and front-end development.</i></h1>
+
+        <h1>UI/UX designer based in the Bay Area with experience in graphic design, professional writing and front-end development.</i></h1>
         <!-- <p>visual designer with experience in graphic design, web design, coding and a huge interest in UI/UX.</p> -->
         <!-- <p>I’m a third-year transfer student at UC Davis (Go Aggies!) and a first-year design major.</p> -->
         <!-- <p>I grew up in San Francisco, surrounded by a vibrant art scene which shaped my curiosity and drive to create.</p> -->
         <p>After exploring paths in film and theater, I found my way to design where storytelling and visual expression come together.</i></p>
     </div>
-    <!-- <img src="images/me.jpeg" alt="Me"> -->
+    <img src="images/me.jpeg" alt="Me">
 </section>
 
 
@@ -436,10 +449,10 @@
 
 
 
-
+<!-- 
 <footer class="reveal">
     Created by Melanie Izquierdo Carrillo
-</footer>
+</footer> -->
 
 
 </div>
@@ -494,15 +507,349 @@ setTimeout(() => {
 const hint = document.getElementById("scrollHint");
 const welcome = document.getElementById("welcome");
 
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        hint.style.opacity = "0";
-        welcome.style.opacity = "0";
-    } else {
-        hint.style.opacity = "1";
-        welcome.style.opacity = "1";
+
+/* =========================
+   WELCOME → ABOUT TRANSITION
+========================= */
+
+const transition =
+    document.getElementById("profileTransition");
+
+    const transitionImage =
+    document.getElementById("transitionImage");
+
+    
+   function updateDarkTransition() {
+
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+
+    const aboutRect =
+        secondPage.getBoundingClientRect();
+
+    const aboutTop =
+        aboutRect.top;
+
+    const aboutBottom =
+        aboutRect.bottom;
+
+
+    /* ==================================================
+       1. DARK SCREEN EXPANSION
+    ================================================== */
+
+    const darkProgress =
+        Math.min(
+            Math.max(scrollY / vh, 0),
+            1
+        );
+
+    transition.style.transform =
+        `translateY(-50%) scaleY(${darkProgress})`;
+
+
+    /* ==================================================
+       2. LOGO SCALE
+       
+       Logo reaches full size exactly when the
+       screen becomes completely dark.
+    ================================================== */
+
+    const logoStart = 0.25;
+
+    let logoProgress = 0;
+
+    if (darkProgress > logoStart) {
+
+        logoProgress =
+            (darkProgress - logoStart) /
+            (1 - logoStart);
+
+        logoProgress =
+            Math.min(
+                Math.max(logoProgress, 0),
+                1
+            );
     }
-});
+
+
+    const easedLogoProgress =
+        logoProgress *
+        logoProgress *
+        (3 - 2 * logoProgress);
+
+
+    const minScale = 0.35;
+    const maxScale = 1;
+
+    const logoScale =
+        minScale +
+        (
+            (maxScale - minScale) *
+            easedLogoProgress
+        );
+
+
+    /* ==================================================
+       3. LOGO POSITION
+       
+       The logo remains centered until the BOTTOM
+       of the About section begins moving upward.
+
+       From that point onward, the logo moves at
+       EXACTLY the same pixel speed as the About
+       section.
+
+       This is the important change.
+    ================================================== */
+
+    let logoOffset = 0;
+
+    if (aboutBottom < vh) {
+
+        /*
+         * How many pixels the bottom of the About
+         * section has moved above the bottom of
+         * the viewport.
+         *
+         * Example:
+         *
+         * aboutBottom = 900
+         * viewport    = 1000
+         *
+         * logoOffset = 100px
+         */
+
+        logoOffset =
+            vh - aboutBottom;
+    }
+
+
+    /*
+     * Logo starts centered at 50%.
+     *
+     * Move it upward by the EXACT SAME number
+     * of pixels as the About section.
+     */
+
+    const logoTranslateY =
+        -logoOffset;
+
+
+    /* ==================================================
+   4. LOGO DARKENING + FADING
+
+   The logo starts darkening AND fading when
+   the About section reaches it.
+================================================== */
+
+let logoBrightness = 1;
+let logoFadeOpacity = 1;
+
+
+/*
+ * The logo starts darkening/fading when the
+ * About section reaches the center of the logo.
+ */
+
+const darkenStart =
+    vh / 2;
+
+
+if (
+    aboutTop < darkenStart &&
+    darkProgress >= 1
+) {
+
+    const darkenDistance =
+        darkenStart - aboutTop;
+
+    /*
+     * Controls how gradually the logo fades.
+     *
+     * Larger = slower / more gradual
+     * Smaller = faster / stronger
+     */
+
+    const darkenRange =
+        vh * 0.35;
+
+
+    const darkenProgress =
+        Math.min(
+            Math.max(
+                darkenDistance /
+                darkenRange,
+                0
+            ),
+            1
+        );
+
+
+    /*
+     * Smooth the transition.
+     */
+
+    const easedDarken =
+        darkenProgress *
+        darkenProgress *
+        (3 - 2 * darkenProgress);
+
+
+    /* =========================
+       DARKNESS
+    ========================= */
+
+    /*
+     * 1   = normal
+     * 0.4 = darkest point
+     */
+
+    const minimumBrightness = 0.4;
+
+    logoBrightness =
+        1 -
+        (
+            (1 - minimumBrightness) *
+            easedDarken
+        );
+
+
+    /* =========================
+       FADING
+    ========================= */
+
+    /*
+     * 1   = fully visible
+     * 0.15 = very faded
+     */
+
+    const minimumOpacity = 0.2;
+
+    logoFadeOpacity =
+        1 -
+        (
+            (1 - minimumOpacity) *
+            easedDarken
+        );
+}
+
+
+
+    /* ==================================================
+   5. APPLY LOGO
+================================================== */
+
+transitionImage.style.transform =
+    `translate(-50%, calc(-50% - ${logoOffset}px))
+     scale(${logoScale})`;
+
+transitionImage.style.filter =
+    `brightness(${logoBrightness})`;
+
+
+/* ==================================================
+   6. LOGO VISIBILITY
+
+   The logo gradually fades when the About section
+   reaches it.
+
+   It is completely hidden only after it physically
+   leaves the viewport.
+================================================== */
+
+
+/*
+ * Logo's normal appearance while it is entering.
+ */
+
+let logoOpacity =
+    easedLogoProgress *
+    logoFadeOpacity;
+
+
+/*
+ * Read the actual rendered logo position.
+ */
+
+const logoRect =
+    transitionImage.getBoundingClientRect();
+
+
+/*
+ * Once the entire logo has physically moved
+ * above the viewport, remove it completely.
+ */
+
+if (
+    logoRect.bottom <= 0
+) {
+
+    logoOpacity = 0;
+}
+
+
+transitionImage.style.opacity =
+    logoOpacity;
+
+
+
+    /* ==================================================
+       7. ABOUT Z-INDEX
+    ================================================== */
+
+    if (aboutTop < vh) {
+
+        secondPage.style.zIndex = "7";
+
+    } else {
+
+        secondPage.style.zIndex = "4";
+    }
+
+
+    /* ==================================================
+       8. ABOUT OVERLAY
+    ================================================== */
+
+    if (aboutTop < vh) {
+
+        secondPage.classList.add(
+            "transition-overlay"
+        );
+
+    } else {
+
+        secondPage.classList.remove(
+            "transition-overlay"
+        );
+    }
+
+}
+
+
+
+
+
+window.addEventListener(
+    "scroll",
+    updateDarkTransition,
+    { passive: true }
+);
+
+window.addEventListener(
+    "resize",
+    updateDarkTransition
+);
+
+window.addEventListener(
+    "load",
+    updateDarkTransition
+);
+
+
+
+
 
 window.addEventListener("load", () => {
     setTimeout(() => {
@@ -512,29 +859,61 @@ window.addEventListener("load", () => {
 });
 
 const nav = document.querySelector("nav");
+const nameNav = document.querySelector(".name-nav");
 const secondPage = document.querySelector(".blank-section");
 
-function updateNav() {
-    const rect = secondPage.getBoundingClientRect();
 
-    if (rect.top <= window.innerHeight) {
+function updateNav() {
+    const vh = window.innerHeight;
+    const scrollY = window.scrollY;
+
+    // =========================
+    // DARK TRANSITION PROGRESS
+    // =========================
+
+    const darkProgress =
+        Math.min(
+            Math.max(scrollY / vh, 0),
+            1
+        );
+
+
+    // =========================
+    // CONNECT NAV VISIBILITY
+    // =========================
+
+    const blankRect =
+        secondPage.getBoundingClientRect();
+
+    if (blankRect.top <= window.innerHeight) {
         nav.classList.add("show");
     } else {
         nav.classList.remove("show");
     }
 
 
-    // Change nav text color when portfolio is visible
+    // =========================
+    // NAV COLORS
+    // =========================
 
-    const portfolioRect =
-        portfolio.getBoundingClientRect();
+    /*
+     * Only change the nav colors once the
+     * dark screen has completely expanded.
+     */
 
-if (portfolioRect.top <= window.innerHeight * 0.90) {
-    nav.classList.add("portfolio-active");
-} else {
-    nav.classList.remove("portfolio-active");
+    if (darkProgress >= 1) {
+
+        nav.classList.add("portfolio-active");
+        nameNav.classList.add("portfolio-active");
+
+    } else {
+
+        nav.classList.remove("portfolio-active");
+        nameNav.classList.remove("portfolio-active");
+    }
 }
-}
+
+
 
 
 
@@ -544,51 +923,55 @@ window.addEventListener("load", updateNav);
 
 /* =========================
    GLOBAL SCROLL REVEAL SYSTEM
-   ========================= */
-/* =========================
-   GLOBAL SCROLL REVEAL SYSTEM
 ========================= */
 
-const blankSection = document.querySelector(".blank-section");
-const portfolio = document.querySelector(".portfolio");
+const portfolio =
+    document.querySelector(".portfolio");
 
 function updateReveal() {
 
-    // =========================
-    // ABOUT SECTION
-    // =========================
+    if (!portfolio) return;
 
-    if (window.scrollY > window.innerHeight * 0.05) {
-        blankSection.classList.add("visible");
-    } else {
-        blankSection.classList.remove("visible");
-    }
+    /*
+     * =========================
+     * PORTFOLIO
+     * =========================
+     */
 
+    const portfolioRect =
+        portfolio.getBoundingClientRect();
 
-    // =========================
-    // PORTFOLIO
-    // =========================
-
-    const blankRect = blankSection.getBoundingClientRect();
-
-    if (blankRect.bottom < window.innerHeight) {
+    if (
+        portfolioRect.top < window.innerHeight
+    ) {
         portfolio.classList.add("visible");
     } else {
         portfolio.classList.remove("visible");
     }
 
 
-    // =========================
-    // OTHER REVEALS
-    // =========================
+    /*
+     * =========================
+     * OTHER REVEALS
+     * =========================
+     */
 
     document.querySelectorAll(".reveal").forEach(el => {
 
-        // Don't override the special behavior
-        // of the About section or Portfolio
-        if (el === blankSection || el === portfolio) return;
+        /*
+         * Do NOT control the About section
+         * with the generic reveal system.
+         */
 
-        const rect = el.getBoundingClientRect();
+        if (
+            el.classList.contains("blank-section") ||
+            el.classList.contains("portfolio")
+        ) {
+            return;
+        }
+
+        const rect =
+            el.getBoundingClientRect();
 
         if (
             rect.top < window.innerHeight * 0.95 &&
@@ -600,10 +983,18 @@ function updateReveal() {
         }
 
     });
+
 }
 
-window.addEventListener("scroll", updateReveal);
-window.addEventListener("load", updateReveal);
+window.addEventListener(
+    "scroll",
+    updateReveal
+);
+
+window.addEventListener(
+    "load",
+    updateReveal
+);
 
 
 
@@ -1181,6 +1572,54 @@ window.addEventListener(
     "load",
     updatePortfolioStack
 );
+
+
+
+
+
+
+function alignWelcomeDescription() {
+
+    const nameNav =
+        document.querySelector(".name-nav");
+
+    const description =
+        document.querySelector(".welcome-description");
+
+    if (!nameNav || !description) return;
+
+
+    /*
+     * Get the actual rendered width of the
+     * name navigation.
+     */
+    const nameWidth =
+        nameNav.getBoundingClientRect().width;
+
+
+    /*
+     * Give the description exactly the same
+     * width.
+     *
+     * Because both elements have the same
+     * right position, their left edges now
+     * match perfectly.
+     */
+    description.style.width =
+        `${nameWidth}px`;
+}
+
+
+window.addEventListener(
+    "load",
+    alignWelcomeDescription
+);
+
+window.addEventListener(
+    "resize",
+    alignWelcomeDescription
+);
+
 
 
 
