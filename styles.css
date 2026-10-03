@@ -15,7 +15,7 @@ overflow-y: auto;
 }
 
 .page {
-    max-width: 1300px;
+    max-width: 1400px;
     margin: 0 auto;
     padding: 30px;
     box-sizing: border-box;
@@ -74,7 +74,7 @@ pointer-events: none;
     position: fixed;
 
     top: 30px;
-    right: max(30px, calc((100vw - 1300px) / 2 + 30px));
+    right: max(30px, calc((100vw - 1400px) / 2 + 30px));
 
     z-index: 1000;
 
@@ -206,7 +206,7 @@ NAV
 nav {
 position: fixed;
 bottom: 80px;
-right: max(20px, calc((100vw - 1300px) / 2));
+right: max(30px, calc((100vw - 1400px) / 2 + 30px));
 
 width: 90px;
 height: 90px;
@@ -556,7 +556,7 @@ PORTFOLIO
 .portfolio {
     width: 100vw;
 
-    height: 800vh;
+    height: 700vh;
 
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
@@ -1132,7 +1132,7 @@ RESPONSIVE
 
         display: block;
 
-        width: 240px;
+        width: 220px;
         max-width: 70vw;
         height: auto;
 
@@ -1210,6 +1210,13 @@ RESPONSIVE
         width: 72vw;
         height: 72vw;
         flex: 0 0 72vw;
+        overflow: hidden;
+        line-height: 0;
+    }
+
+        .gallery-image,
+    .gallery-image img {
+        display: block;
     }
 
     .project-header {
