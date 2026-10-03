@@ -169,7 +169,7 @@ pointer-events: none;
 ========================= */
 
 .name-nav.portfolio-active a {
-    color: hsl(20, 100%, 99%);
+    color:  hsl(75, 15%, 95%);
 }
 
 .name-nav.portfolio-active .name-subtitle {
@@ -265,7 +265,7 @@ nav a {
 }
 
 nav.portfolio-active a {
-    color: hsl(75, 15%, 95%);
+    color:  hsl(75, 15%, 95%);
 }
 
 
@@ -1232,6 +1232,20 @@ RESPONSIVE
 
         font-size: 0.8rem;
         line-height: 1.6;
+    }
+
+.transition-image {
+        width: 120vw;
+        height: auto;
+    }
+
+    .transition-image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        object-fit: contain;
     }
 }
 
