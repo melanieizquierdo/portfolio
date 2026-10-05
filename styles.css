@@ -557,9 +557,9 @@ BLANK SECTION
    ABOUT LIST
 ========================= */
 .about-list {
-    width: calc(100% - 140px);
-    margin-left: 70px;
-    margin-right: 70px;
+    width: calc(100% - 300px);
+    /* margin-left: 70px;
+    margin-right: 70px; */
 }
 
 
@@ -1453,14 +1453,17 @@ RESPONSIVE
 
 
 
+.name-nav {
+    font-size: 0.65rem;
+    top: 27px;
 
+    left: 80px;
+    right: auto;
 
-    .name-nav {
+    text-align: left;
+    word-spacing: -0.3em;
+}
 
-        font-size: 0.65rem;
-
-        text-align: left;
-    }
 
     .name-subtitle {
         font-size: inherit;
@@ -1472,7 +1475,8 @@ RESPONSIVE
         width: 65px;
         height: 65px;
         bottom: 45px;
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+        letter-spacing: 0.09em;
     }
 
     /* =========================
@@ -1508,8 +1512,8 @@ RESPONSIVE
     box-sizing: border-box;
 
     padding-top: 80px;
-    padding-left: 20px;
-    padding-right: 20px;
+    /* padding-left: 20px;
+    padding-right: 20px; */
     padding-bottom: 8vh;
 
     gap: 25px;
