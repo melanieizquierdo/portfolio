@@ -1344,7 +1344,7 @@ RESPONSIVE
     left: 20px;
 
     width: 22px;
-    height: 5.5px;
+    height: 7px;
 
     display: flex;
     flex-direction: column;
@@ -1363,13 +1363,14 @@ RESPONSIVE
 
     display: block;
 
-    width: 15px;
-    height: 1.22px;
+    width: 16px;
+    height: 1.2px;
 
     background: rgb(47, 47, 47);
 
     transition: background 0.4s ease;
 }
+
 
 /* Hide HOME / ABOUT / WORK on mobile */
 .section-nav a {
