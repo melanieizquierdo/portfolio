@@ -1345,7 +1345,7 @@ RESPONSIVE
 .section-nav {
     position: fixed;
 
-    top: 30px;
+    top: 21px;
     left: 20px;
 
     width: 22px;
@@ -1455,9 +1455,9 @@ RESPONSIVE
 
 .name-nav {
     font-size: 0.65rem;
-    top: 27px;
+    top: 15px;
 
-    left: 80px;
+    left: 70px;
     right: auto;
 
     text-align: left;
