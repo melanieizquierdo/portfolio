@@ -1327,7 +1327,7 @@ RESPONSIVE
 ----------------------------------------- */
 @media (max-width: 700px) {
     .page {
-        padding-top: 10px;
+        padding-top: 5px;
     }
 
     body {
@@ -1505,11 +1505,12 @@ RESPONSIVE
     width: 100%;
     box-sizing: border-box;
 
-    padding-top: 8vh;
+    padding-top: 0;
     padding-bottom: 8vh;
 
     gap: 25px;
 }
+
 
 /* Smaller photo */
 .blank-section > img {
@@ -1532,16 +1533,21 @@ RESPONSIVE
     width: 100%;
     box-sizing: border-box;
 
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-    gap: 12px;
+    gap: 20px;
     padding: 22px 0;
+
+    text-align: left;
 }
 
+
 .about-description {
-    max-width: none;
     width: 100%;
+    max-width: none;
+
+    grid-column: 2;
 
     font-size: 1.1rem;
     letter-spacing: 0.03em;
@@ -1551,6 +1557,9 @@ RESPONSIVE
     color: rgba(139, 139, 139, 0.925);
 }
 
+.about-label {
+    grid-column: 1;
+}
 
 
 /* Reduce spacing between paragraphs */
@@ -1586,7 +1595,7 @@ RESPONSIVE
     .blank-section .text-block {
         order: 1;
 
-        width: 95%;
+        width: 100%;
 
         flex: none;
 
