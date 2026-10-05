@@ -1,7 +1,6 @@
 html {
 height: 100%;
-scroll-behavior: auto;
-/* scroll-behavior: smooth; */
+scroll-behavior: smooth;
 /* scroll-snap-type: y mandatory; */
 }
 body {
@@ -18,7 +17,7 @@ overflow-y: auto;
 .page {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 30px 30px 0 30px;
+    padding: 20px 20px 0 20px;
     box-sizing: border-box;
 }
 
@@ -72,6 +71,86 @@ user-select: none;
 img {
 pointer-events: none;
 }
+
+
+/* =========================
+   SECTION NAV
+========================= */
+
+.section-nav {
+    position: fixed;
+
+    top: 30px;
+    left: max(20px, calc((100vw - 1400px) / 2 + 20px));
+
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 20px;
+
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    line-height: 1.2;
+}
+
+.section-nav.portfolio-active a {
+    background: linear-gradient(
+        to right,
+        #f5a52e 50%,
+        hsl(75, 15%, 95%) 50%
+    );
+
+    background-size: 200% 100%;
+    background-position: 100% 0;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-nav.portfolio-active a:hover {
+    background-position: 0 0;
+}
+
+
+/* =========================
+   SECTION NAV LINKS
+========================= */
+
+.section-nav a {
+    display: block;
+    width: fit-content;
+
+    text-decoration: none;
+    position: relative;
+
+    color: rgb(47, 47, 47);
+
+    background: linear-gradient(
+        to right,
+        #f5a52e 50%,
+        rgb(47, 47, 47) 50%
+    );
+
+    background-size: 200% 100%;
+    background-position: 100% 0;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    transition: background-position 0.45s ease;
+}
+
+.section-nav a:hover {
+    background-position: 0 0;
+}
+
+
+
 /* =========================
    NAME NAV
 ========================= */
@@ -86,7 +165,7 @@ pointer-events: none;
 
     text-align: left;
 
-    font-size: 0.77rem;
+    font-size: 0.8rem;
     letter-spacing: 0.05em;
     line-height: 1.2;
 
@@ -212,28 +291,6 @@ pointer-events: none;
 
 .name-nav.portfolio-active .name-subtitle {
     color: rgba(255, 255, 255, 0.58);
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 700px) {
-
-    .name-nav {
-        top: 20px;
-        right: 20px;
-
-        font-size: 0.65rem;
-
-        text-align: left;
-    }
-
-    .name-subtitle {
-        font-size: inherit;
-    }
-
 }
 
 
@@ -470,6 +527,7 @@ BLANK SECTION
     z-index: 7;
 
     background: transparent;
+    font-family: "Instrument Serif";
 
 
     display: flex;
@@ -498,20 +556,18 @@ BLANK SECTION
 /* =========================
    ABOUT LIST
 ========================= */
-
 .about-list {
-    width: 100%;
-    margin: 0 auto;
+    width: calc(100% - 140px);
+    margin-left: 70px;
+    margin-right: 70px;
 }
 
 
-/* =========================
-   EACH ROW
-========================= */
-
 .about-row {
     display: grid;
-    grid-template-columns: 35% 65%;
+
+    /* title | empty space | description */
+    grid-template-columns: 220px 1fr 300px;
 
     padding: 35px 0;
 
@@ -520,9 +576,7 @@ BLANK SECTION
     text-align: left;
 }
 
-.about-row:last-child {
-    border-bottom: 0.5px solid rgba(120, 120, 120, 0.25);
-}
+
 
 
 
@@ -533,8 +587,8 @@ BLANK SECTION
 
 .about-label {
 
-    font-size: 1.5rem;
-    letter-spacing: 0.08em;
+    font-size: 1.6rem;
+    letter-spacing: 0.025em;
 
     color: hsl(75, 15%, 95%);
 }
@@ -545,13 +599,17 @@ BLANK SECTION
 ========================= */
 
 .about-description {
-    max-width: 600px;
+    grid-column: 3;
 
-    color: rgb(145, 145, 145);
+    width: 350px;
+    max-width: 350px;
+
+    color: rgba(139, 139, 139, 0.925);
 
     font-size: 1.1rem;
     letter-spacing: 0.03em;
-    line-height: 1.5;
+    word-spacing: 0.01em;
+    line-height: 1.4;
 }
 
 
@@ -1081,6 +1139,11 @@ PROJECT TEXT
 }
 
 
+.mobile-section-menu {
+    display: none;
+}
+
+
 /* =========================================================
 RESPONSIVE
 ========================================================= */
@@ -1245,6 +1308,10 @@ RESPONSIVE
         font-size: 0.7rem;
         max-width: 180px;
     }
+/* .mobile-section-menu {
+    display: none !important;
+} */
+
 }
 
 
@@ -1258,6 +1325,136 @@ RESPONSIVE
         font-size: 14px;
         padding: 0 12px;
     }
+
+
+    /* =========================
+   MOBILE SECTION NAV
+========================= */
+
+.section-nav {
+    position: fixed;
+
+    top: 30px;
+    left: 20px;
+
+    width: 22px;
+    height: 5.5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0;
+
+    z-index: 1000;
+
+    font-size: 0;
+}
+
+/* Two hamburger lines */
+.section-nav::before,
+.section-nav::after {
+    content: "";
+
+    display: block;
+
+    width: 15px;
+    height: 1.22px;
+
+    background: rgb(47, 47, 47);
+
+    transition: background 0.4s ease;
+}
+
+/* Hide HOME / ABOUT / WORK on mobile */
+.section-nav a {
+    display: none;
+}
+
+/* Dark portfolio screen */
+.section-nav.portfolio-active::before,
+.section-nav.portfolio-active::after {
+    background: hsl(75, 15%, 95%);
+}
+
+/* Keep hamburger dark when mobile menu is open */
+.section-nav.menu-open::before,
+.section-nav.menu-open::after {
+    background: rgb(47, 47, 47);
+}
+
+
+
+
+/* =========================
+   MOBILE SECTION MENU
+========================= */
+
+.mobile-section-menu {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: hsl(75, 15%, 95%);
+
+    z-index: 999;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 25px;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.mobile-section-menu.open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+.mobile-section-menu a {
+    text-decoration: none;
+
+    color: rgb(47, 47, 47);
+
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+
+    transition: color 0.3s ease;
+}
+
+.mobile-section-menu a:hover {
+    color: #f5a52e;
+}
+
+
+
+
+
+    .name-nav {
+
+        font-size: 0.65rem;
+
+        text-align: left;
+    }
+
+    .name-subtitle {
+        font-size: inherit;
+    }
+
+
 
     nav {
         width: 65px;
@@ -1290,30 +1487,79 @@ RESPONSIVE
        ABOUT / BLANK SECTION
     ========================= */
 
-    .blank-section {
-        min-height: 100vh;
-        height: auto;
+/* =========================
+   ABOUT SECTION — MOBILE
+========================= */
 
-        box-sizing: border-box;
+.blank-section {
+    width: 100%;
+    box-sizing: border-box;
 
-        display: flex;
-        flex-direction: column;
+    padding-top: 8vh;
+    padding-bottom: 8vh;
 
-        justify-content: flex-start;
-        align-items: flex-start;
+    gap: 25px;
+}
 
-        gap: 30px;
+/* Smaller photo */
+.blank-section > img {
+    width: 140px;
+    max-width: 40vw;
+    height: auto;
 
-        padding-top: 8vh;
-        padding-bottom: 8vh;
+    margin: 0 auto 25px;
 
-        text-align: left;
+    align-self: center;
+}
 
-        position: relative;
-        z-index: 7;
+/* Rows use the full available width */
+.about-list {
+    width: 80vw;
+    margin: 0 auto;
+}
 
-        overflow: visible;
-    }
+
+/* Stack title + description */
+.about-row {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    padding: 22px 0;
+
+}
+
+
+
+/* Smaller row titles */
+/* .about-label {
+    /* font-size: 1rem;
+    letter-spacing: 0.025em; */
+    /* color: hsl(75, 15%, 95%); */
+/* } */ */
+
+.about-description {
+    max-width: none;
+
+    /* font-size: 0.9rem;
+    letter-spacing: 0.035em;
+    word-spacing: 0.02em;
+    line-height: 1.2;
+
+    color: rgb(145, 145, 145);
+} */
+}
+
+/* Reduce spacing between paragraphs */
+.about-description p {
+    margin: 0 0 12px;
+}
+
+.about-description p:last-child {
+    margin-bottom: 0;
+}
+
 
 
     /* PHOTO FIRST */
@@ -1394,13 +1640,13 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(30px);
+        transform: translateY(50px);
     }
 
     .project-gallery {
-        width: 72vw;
-        height: 72vw;
-        flex: 0 0 72vw;
+        width: 80vw;
+        height: 80vw;
+        flex: 0 0 80vw;
         overflow: hidden;
         line-height: 0;
     }
@@ -1447,6 +1693,24 @@ RESPONSIVE
     }
 }
 
+
+    /* Hide CONNECT when section menu is open */
+    body.mobile-menu-open nav {
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+    }
+
+        body.mobile-menu-open .name-nav a {
+        background: none;
+        color: rgb(47, 47, 47);
+
+        -webkit-text-fill-color: rgb(47, 47, 47);
+    }
+
+    body.mobile-menu-open .name-nav .name-subtitle {
+        color: rgb(145, 145, 145);
+    }
 
 
 
