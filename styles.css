@@ -1507,7 +1507,9 @@ RESPONSIVE
     width: 100%;
     box-sizing: border-box;
 
-    padding-top: 0;
+    padding-top: 80px;
+    padding-left: 20px;
+    padding-right: 20px;
     padding-bottom: 8vh;
 
     gap: 25px;
@@ -1535,24 +1537,24 @@ RESPONSIVE
     width: 100%;
     box-sizing: border-box;
 
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    display: block;
 
     padding: 22px 0;
-    gap: 20px;
 
     text-align: left;
 }
 
 .about-label {
-    margin: 0;
-    flex: 0 0 auto;
+    display: block;
+    margin: 0 0 18px;
 }
 
 .about-description {
-    width: 50%;
+    display: block;
+
+    width: 100%;
     max-width: none;
+
     margin: 0;
 
     text-align: left;
