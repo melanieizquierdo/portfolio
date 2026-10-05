@@ -910,6 +910,12 @@ pointer-events: none;
 will-change: transform;
 
 }
+
+.project-background.dark-bg {
+    filter: brightness(0.75) saturate(1.2) blur(26px);
+}
+
+
 /*
 
 First background starts visible.
@@ -1459,7 +1465,7 @@ RESPONSIVE
     nav {
         width: 65px;
         height: 65px;
-        bottom: 35px;
+        bottom: 45px;
         font-size: 0.75rem;
     }
 
@@ -1633,7 +1639,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(20px);
+        transform: translateY(15px);
     }
 
     .project-gallery {
