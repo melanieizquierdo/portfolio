@@ -1137,7 +1137,7 @@ PROJECT TEXT
     max-width: 250px;
 
     font-size: 1rem;
-    font-weight: 210;
+    font-weight: 220;
     letter-spacing: -0.01;
 
     line-height: 1.5;
@@ -1655,12 +1655,12 @@ RESPONSIVE
         justify-content: center;
         align-items: center;
 
-        gap: 40px;
+        gap: 60px;
 
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(-60px);
+        transform: translateY(-50px);
     }
 
     .project-gallery {
@@ -1689,6 +1689,8 @@ RESPONSIVE
     .project-header h2 {
         /* font-size: 1.05rem; */
         margin-bottom: 15px;
+        font-weight: 350;
+
     }
 
     .project-header p {
