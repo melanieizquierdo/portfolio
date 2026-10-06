@@ -1642,7 +1642,7 @@ RESPONSIVE
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    height: 800vh;
+    height: 400vh;
 }
 
 
@@ -1665,7 +1665,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(-10px);
+        transform: translateY(5px);
     }
 
     .project-gallery {
@@ -1682,7 +1682,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 280px);
+        width: min(68vw, 240px);
 
         flex: 0 0 auto;
 
