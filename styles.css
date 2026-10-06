@@ -1484,7 +1484,7 @@ RESPONSIVE
     nav {
         width: 60px;
         height: 60px;
-        bottom: 60px;
+        bottom: 50px;
         font-size: 0.65rem;
         letter-spacing: 0.075em;
     }
@@ -1642,7 +1642,7 @@ RESPONSIVE
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    height: 400vh;
+    height: 800vh;
 }
 
 
@@ -1665,7 +1665,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(5px);
+        transform: translateY(15px);
     }
 
     .project-gallery {
@@ -1682,7 +1682,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 240px);
+        width: min(68vw, 220px);
 
         flex: 0 0 auto;
 
@@ -1693,7 +1693,7 @@ RESPONSIVE
 
     .project-header h2 {
         /* font-size: 1.05rem; */
-        margin-bottom: 25px;
+        margin-bottom: 15px;
     }
 
     .project-header p {
