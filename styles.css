@@ -772,7 +772,6 @@ transition-delay: 0.15s;
     word-spacing: -0.04em;
 
     margin-bottom: 30px;
-    font-family: "Libre Caslon Condensed";
     font-style: italic;
 }
 
@@ -814,7 +813,7 @@ PORTFOLIO
 
     position: relative;
     z-index: 10;
-    font-family: "Instrument Serif";
+    font-family: "Outfit", sans-serif;
 }
 
 
@@ -1122,12 +1121,10 @@ PROJECT TEXT
 .project-header h2 {
     margin: 0 0 15px;
 
-    font-family: "Instrument Serif";
-    font-size: 1.6rem;
+    font-size: 1.55rem;
     font-weight: 400;
 
-    letter-spacing: 0.025em;
-    word-spacing: normal;
+    word-spacing: -0.02em;
 
     color: hsl(75, 15%, 95%);
 }
@@ -1139,8 +1136,8 @@ PROJECT TEXT
     max-width: 220px;
 
     font-size: 1.0rem;
-    letter-spacing: 0.025em;
-    word-spacing: normal;
+    letter-spacing: 0.02em;
+    font-weight: 220;
 
     line-height: 1.5;
 }
@@ -1649,56 +1646,42 @@ RESPONSIVE
     }
 
 
-    .project-content {
-        width: 100%;
+.project-content {
+    width: 100%;
+    flex-direction: column;
 
-        flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-        justify-content: center;
-        align-items: center;
+    gap: 35px;
 
-        gap: 50px;
+    padding: 0 20px;
+    box-sizing: border-box;
 
-        padding: 0 20px;
+    transform: translateY(15px);
+}
 
-        box-sizing: border-box;
-        transform: translateY(15px);
-    }
+.project-header {
+    width: 90%;
+    max-width: 500px; /* optional */
+    flex: 0 0 auto;
 
-    .project-gallery {
-        width: 80vw;
-        height: 80vw;
-        flex: 0 0 80vw;
-        overflow: hidden;
-        line-height: 0;
-    }
+    text-align: left;
+    overflow: visible;
+}
 
-        .gallery-image,
-    .gallery-image img {
-        display: block;
-    }
+.project-header h2 {
+    margin-bottom: 15px;
+}
 
-    .project-header {
-        width: min(68vw, 310px);
+.project-header p {
+    width: 100%;
+    max-width: none;
 
-        flex: 0 0 auto;
+    font-size: .8rem;
+    line-height: 1.5;
+}
 
-        text-align: left;
-
-        overflow: visible;
-    }
-
-    .project-header h2 {
-        /* font-size: 1.05rem; */
-        margin-bottom: 35px;
-    }
-
-    .project-header p {
-        max-width: 100%;
-
-        font-size: 1.1rem;
-        line-height: 1.5;
-    }
 
 .transition-image {
         width: 150vw;
