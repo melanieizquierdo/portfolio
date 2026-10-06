@@ -1113,7 +1113,7 @@ PROJECT TEXT
 
     pointer-events: auto;
 
-    height: 180px;
+    height: auto;
     overflow: hidden;
     color: hsl(75, 15%, 95%);
 
@@ -1122,10 +1122,9 @@ PROJECT TEXT
 .project-header h2 {
     margin: 0 0 15px;
 
-    font-size: 1.6rem;
-    font-weight: 400;
+    font-size: 1.7rem;
+    font-weight: 380;
 
-    letter-spacing: 0.025em;
     word-spacing: normal;
 
     color: hsl(75, 15%, 95%);
@@ -1135,10 +1134,11 @@ PROJECT TEXT
 .project-header p {
     margin: 0;
 
-    max-width: 220px;
+    max-width: 250px;
 
-    font-size: 1.0rem;
+    font-size: 1rem;
     font-weight: 220;
+    letter-spacing: -0.01;
 
     line-height: 1.5;
 }
@@ -1637,7 +1637,7 @@ RESPONSIVE
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    height: 800vh;
+    height: 700vh;
 }
 
 
@@ -1660,7 +1660,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(15px);
+        transform: translateY(-40px);
     }
 
     .project-gallery {
@@ -1677,7 +1677,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 240px);
+        width: min(68vw, 250px);
 
         flex: 0 0 auto;
 
