@@ -303,8 +303,8 @@ nav {
     bottom: 80px;
     right: max(30px, calc((100vw - 1400px) / 2 + 30px));
 
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 
     display: flex;
     justify-content: center;
@@ -1113,7 +1113,7 @@ PROJECT TEXT
 
     pointer-events: auto;
 
-    height: 180px;
+    height: 250px;
     overflow: hidden;
     color: hsl(75, 15%, 95%);
 
@@ -1482,11 +1482,11 @@ RESPONSIVE
 
 
     nav {
-        width: 65px;
-        height: 65px;
+        width: 60px;
+        height: 60px;
         bottom: 60px;
         font-size: 0.65rem;
-        letter-spacing: 0.08em;
+        letter-spacing: 0.075em;
     }
 
     /* =========================
@@ -1665,7 +1665,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(15px);
+        transform: translateY(-50px);
     }
 
     .project-gallery {
@@ -1699,9 +1699,9 @@ RESPONSIVE
     .project-header p {
         max-width: 100%;
 
-        font-size: .9rem;
+        font-size: .85rem;
         line-height: 1.5;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.01em;
     }
 
 .transition-image {
