@@ -814,7 +814,7 @@ PORTFOLIO
 
     position: relative;
     z-index: 10;
-    font-family: "Instrument Serif";
+    font-family: "Outfit", sans-serif;
 }
 
 
@@ -1122,7 +1122,6 @@ PROJECT TEXT
 .project-header h2 {
     margin: 0 0 15px;
 
-    font-family: "Instrument Serif";
     font-size: 1.6rem;
     font-weight: 400;
 
@@ -1140,7 +1139,7 @@ PROJECT TEXT
 
     font-size: 1.0rem;
     letter-spacing: 0.025em;
-    word-spacing: normal;
+    font-weight: 200;
 
     line-height: 1.5;
 }
@@ -1483,7 +1482,7 @@ RESPONSIVE
         height: 65px;
         bottom: 60px;
         font-size: 0.65rem;
-        letter-spacing: 0.09em;
+        letter-spacing: 0.08em;
     }
 
     /* =========================
@@ -1657,7 +1656,7 @@ RESPONSIVE
         justify-content: center;
         align-items: center;
 
-        gap: 50px;
+        gap: 40px;
 
         padding: 0 20px;
 
@@ -1679,7 +1678,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 300px);
+        width: min(68vw, 280px);
 
         flex: 0 0 auto;
 
@@ -1690,13 +1689,13 @@ RESPONSIVE
 
     .project-header h2 {
         /* font-size: 1.05rem; */
-        margin-bottom: 25px;
+        margin-bottom: 20px;
     }
 
     .project-header p {
         max-width: 100%;
 
-        font-size: 1.1rem;
+        font-size: .8rem;
         line-height: 1.5;
         letter-spacing: 0.03em;
     }
