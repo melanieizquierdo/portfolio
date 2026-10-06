@@ -589,7 +589,7 @@ BLANK SECTION
 .about-label {
 
     font-size: 1.65rem;
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
 
     color: hsl(75, 15%, 95%);
 }
@@ -1127,7 +1127,7 @@ PROJECT TEXT
     font-size: 1.65rem;
     font-weight: 400;
 
-    letter-spacing: 0.03em;
+    letter-spacing: 0.02em;
     word-spacing: normal;
 
     color: hsl(75, 15%, 95%);
@@ -1661,7 +1661,7 @@ RESPONSIVE
         justify-content: center;
         align-items: center;
 
-        gap: 45px;
+        gap: 60px;
 
         padding: 0 20px;
 
