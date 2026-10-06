@@ -1138,8 +1138,7 @@ PROJECT TEXT
     max-width: 220px;
 
     font-size: 1.0rem;
-    letter-spacing: 0.025em;
-    font-weight: 200;
+    font-weight: 220;
 
     line-height: 1.5;
 }
@@ -1678,7 +1677,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 280px);
+        width: min(68vw, 240px);
 
         flex: 0 0 auto;
 
@@ -1695,7 +1694,7 @@ RESPONSIVE
     .project-header p {
         max-width: 100%;
 
-        font-size: .8rem;
+        font-size: .9rem;
         line-height: 1.5;
         letter-spacing: 0.03em;
     }
