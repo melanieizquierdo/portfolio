@@ -1136,7 +1136,7 @@ PROJECT TEXT
 .project-header p {
     margin: 0;
     font-family: "Outfit", sans-serif;
-    font-weight: 200;
+    font-weight: 210;
 
 
     max-width: 220px;
@@ -1665,7 +1665,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(-30px);
+        transform: translateY(-10px);
     }
 
     .project-gallery {
