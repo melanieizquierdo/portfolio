@@ -1660,12 +1660,12 @@ RESPONSIVE
         justify-content: center;
         align-items: center;
 
-        gap: 50px;
+        gap: 40px;
 
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(15px);
+        transform: translateY(20px);
     }
 
     .project-gallery {
@@ -1682,7 +1682,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 220px);
+        width: min(68vw, 225px);
 
         flex: 0 0 auto;
 
@@ -1693,7 +1693,7 @@ RESPONSIVE
 
     .project-header h2 {
         /* font-size: 1.05rem; */
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .project-header p {
