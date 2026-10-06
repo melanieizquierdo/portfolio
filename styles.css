@@ -303,8 +303,8 @@ nav {
     bottom: 80px;
     right: max(30px, calc((100vw - 1400px) / 2 + 30px));
 
-    width: 80px;
-    height: 80px;
+    width: 70px;
+    height: 70px;
 
     display: flex;
     justify-content: center;
@@ -1122,7 +1122,7 @@ PROJECT TEXT
 .project-header h2 {
     margin: 0 0 15px;
 
-    font-size: 1.7rem;
+    font-size: 1.6rem;
     font-weight: 380;
 
     word-spacing: normal;
@@ -1137,7 +1137,7 @@ PROJECT TEXT
     max-width: 250px;
 
     font-size: 1rem;
-    font-weight: 220;
+    font-weight: 210;
     letter-spacing: -0.01;
 
     line-height: 1.5;
@@ -1477,9 +1477,9 @@ RESPONSIVE
 
 
     nav {
-        width: 65px;
-        height: 65px;
-        bottom: 60px;
+        width: 60px;
+        height: 60px;
+        bottom: 50px;
         font-size: 0.65rem;
         letter-spacing: 0.08em;
     }
@@ -1660,7 +1660,7 @@ RESPONSIVE
         padding: 0 20px;
 
         box-sizing: border-box;
-        transform: translateY(-40px);
+        transform: translateY(-60px);
     }
 
     .project-gallery {
@@ -1677,7 +1677,7 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 250px);
+        width: min(68vw, 255px);
 
         flex: 0 0 auto;
 
@@ -1688,15 +1688,15 @@ RESPONSIVE
 
     .project-header h2 {
         /* font-size: 1.05rem; */
-        margin-bottom: 20px;
+        margin-bottom: 15px;
     }
 
     .project-header p {
         max-width: 100%;
 
-        font-size: .9rem;
+        font-size: .85rem;
         line-height: 1.5;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.025em;
     }
 
 .transition-image {
