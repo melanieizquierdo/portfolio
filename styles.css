@@ -915,7 +915,7 @@ will-change: transform;
 }
 
 .project-background.dark-bg {
-    filter: brightness(0.6) saturate(1.5) blur(26px);
+    filter: brightness(0.65) saturate(1.5) blur(26px);
 }
 
 
@@ -1138,7 +1138,7 @@ PROJECT TEXT
 .project-header p {
     margin: 0;
     font-family: "Outfit", sans-serif;
-    font-weight: 220;
+    font-weight: 215;
 
 
     max-width: 220px;
@@ -1661,7 +1661,7 @@ RESPONSIVE
         justify-content: center;
         align-items: center;
 
-        gap: 40px;
+        gap: 45px;
 
         padding: 0 20px;
 
@@ -1691,11 +1691,12 @@ RESPONSIVE
 
         overflow: visible;
     }
+    
+.project-header h2 {
+    margin-bottom: 10px;
+    padding-bottom: 0;
+}
 
-    .project-header h2 {
-        /* font-size: 1.05rem; */
-        margin-bottom: 15px;
-    }
 
     .project-header p {
         max-width: 100%;
