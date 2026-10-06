@@ -419,35 +419,35 @@ window.addEventListener("load", () => {
 
 
 
-// /* =========================
-//    WEIGHTED SCROLL
-// ========================= */
+/* =========================
+   WEIGHTED SCROLL
+========================= */
 
-// let smoothScrollY = window.scrollY;
-// let targetScrollY = window.scrollY;
+let smoothScrollY = window.scrollY;
+let targetScrollY = window.scrollY;
 
-// function updateWeightedScroll() {
-//     targetScrollY = window.scrollY;
+function updateWeightedScroll() {
+    targetScrollY = window.scrollY;
 
-//     /*
-//      * Lower = heavier / more lag
-//      * Higher = faster / more responsive
-//      */
-//     smoothScrollY +=
-//         (targetScrollY - smoothScrollY) * 0.10;
+    /*
+     * Lower = heavier / more lag
+     * Higher = faster / more responsive
+     */
+    smoothScrollY +=
+        (targetScrollY - smoothScrollY) * 0.10;
 
-//     requestAnimationFrame(updateWeightedScroll);
-// }
+    requestAnimationFrame(updateWeightedScroll);
+}
 
-// window.addEventListener(
-//     "scroll",
-//     () => {
-//         targetScrollY = window.scrollY;
-//     },
-//     { passive: true }
-// );
+window.addEventListener(
+    "scroll",
+    () => {
+        targetScrollY = window.scrollY;
+    },
+    { passive: true }
+);
 
-// updateWeightedScroll();
+updateWeightedScroll();
 
 
 
@@ -511,48 +511,6 @@ const transition =
     document.getElementById("transitionImage");
 
     
-
-/* =========================
-   LOCK SCREEN DURING DARK TRANSITION
-========================= */
-
-let transitionScroll = 0;
-let transitionComplete = false;
-
-window.addEventListener("wheel", (e) => {
-
-    if (transitionComplete) return;
-
-    e.preventDefault();
-
-    transitionScroll += e.deltaY;
-
-    transitionScroll = Math.max(
-        0,
-        Math.min(window.innerHeight, transitionScroll)
-    );
-
-    window.scrollTo(0, 0);
-
-    updateDarkTransition();
-
-    if (transitionScroll >= window.innerHeight) {
-
-        transitionComplete = true;
-
-        window.scrollTo({
-            top: window.innerHeight,
-            behavior: "instant"
-        });
-    }
-
-}, { passive: false });
-
-
-
-
-
-
    function updateDarkTransition() {
 
     const vh = window.innerHeight;
@@ -572,12 +530,11 @@ window.addEventListener("wheel", (e) => {
        1. DARK SCREEN EXPANSION
     ================================================== */
 
-const darkProgress =
-    Math.min(
-        Math.max(window.scrollY / vh, 0),
-        1
-    );
-
+    const darkProgress =
+        Math.min(
+            Math.max(scrollY / vh, 0),
+            1
+        );
 
     transition.style.transform =
         `translateY(-50%) scaleY(${darkProgress})`;

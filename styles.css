@@ -325,7 +325,7 @@ nav {
 
     /* Match name-nav */
     font-size: 0.77rem;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.06em;
     line-height: 1.2;
 
     opacity: 0;
@@ -814,6 +814,7 @@ PORTFOLIO
 
     position: relative;
     z-index: 10;
+    font-family: "Instrument Serif";
 }
 
 
@@ -1121,21 +1122,27 @@ PROJECT TEXT
 .project-header h2 {
     margin: 0 0 15px;
 
-    font-size: 1.35rem;
-
+    font-family: "Instrument Serif";
+    font-size: 1.6rem;
     font-weight: 400;
 
-    letter-spacing: -0.035em;
+    letter-spacing: 0.025em;
+    word-spacing: normal;
+
+    color: hsl(75, 15%, 95%);
 }
+
 
 .project-header p {
     margin: 0;
 
     max-width: 220px;
 
-    font-size: 0.8rem;
+    font-size: 1.0rem;
+    letter-spacing: 0.025em;
+    word-spacing: normal;
 
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
 .project-header h2,
@@ -1474,7 +1481,7 @@ RESPONSIVE
     nav {
         width: 65px;
         height: 65px;
-        bottom: 45px;
+        bottom: 60px;
         font-size: 0.65rem;
         letter-spacing: 0.09em;
     }
@@ -1632,7 +1639,7 @@ RESPONSIVE
     width: 100vw;
     margin-left: calc(50% - 50vw);
     margin-right: calc(50% - 50vw);
-    height: 500vh;
+    height: 600vh;
 }
 
 
@@ -1672,25 +1679,26 @@ RESPONSIVE
     }
 
     .project-header {
-        width: min(68vw, 330px);
+        width: min(68vw, 300px);
 
         flex: 0 0 auto;
 
-        text-align: center;
+        text-align: left;
 
         overflow: visible;
     }
 
     .project-header h2 {
-        font-size: 1.05rem;
+        /* font-size: 1.05rem; */
         margin-bottom: 10px;
     }
 
     .project-header p {
         max-width: 100%;
 
-        font-size: 0.8rem;
-        line-height: 1.6;
+        font-size: .9rem;
+        line-height: 1.5;
+        letter-spacing: 0.03em;
     }
 
 .transition-image {
