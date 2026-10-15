@@ -99,7 +99,7 @@ pointer-events: none;
 .section-nav.portfolio-active a {
     background: linear-gradient(
         to right,
-        #f5a52e 50%,
+        #6C7094 50%,
         hsl(75, 15%, 95%) 50%
     );
 
@@ -131,7 +131,7 @@ pointer-events: none;
 
     background: linear-gradient(
         to right,
-        #f5a52e 50%,
+        #6C7094 50%,
         rgb(47, 47, 47) 50%
     );
 
@@ -198,7 +198,7 @@ pointer-events: none;
     /* Purple hover layer */
     background: linear-gradient(
         to right,
-        #f5a52e 50%,
+        #6C7094 50%,
         rgb(47, 47, 47) 50%
     );
 
@@ -274,7 +274,7 @@ pointer-events: none;
 .name-nav.portfolio-active a {
     background: linear-gradient(
         to right,
-        #f5a52e 50%,
+        #6C7094 50%,
         hsl(75, 15%, 95%) 50%
     );
 
@@ -365,7 +365,7 @@ nav a {
     /* Purple is hidden off to the left */
     background: linear-gradient(
         to right,
-        #f5a52e 50%,
+        #6C7094 50%,
         rgb(47, 47, 47) 50%
     );
 
@@ -393,7 +393,7 @@ nav.portfolio-active a {
     /* Resting color on dark background */
     background: linear-gradient(
         to right,
-        #f5a52e 50%,
+        #6C7094 50%,
         hsl(75, 15%, 95%) 50%
     );
 
@@ -612,6 +612,20 @@ BLANK SECTION
     word-spacing: 0.01em;
     line-height: 1.4;
     font-weight: 100;
+
+
+
+        margin: 0;
+    font-family: "Outfit", sans-serif;
+    font-weight: 215;
+
+
+    max-width: 220px;
+
+    font-size: .9rem;
+    word-spacing: normal;
+
+    line-height: 1.5;
 }
 
 
@@ -1165,12 +1179,6 @@ PROJECT TEXT
 /* =========================================================
 RESPONSIVE
 ========================================================= */
-/* =========================================================
-   RESPONSIVE
-   ========================================================= */
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
 
 @media (min-width: 1200px) {
@@ -1263,44 +1271,7 @@ RESPONSIVE
 
 @media (min-width: 701px) and (max-width: 900px) {
 
-    .blank-section {
-        min-height: 100vh;
-    height: auto;
-
-        gap: 40px;
-
-        padding-top: 6vh;
-        padding-bottom: 4vh;
-
-        align-items: flex-start;
-    }
-
-    .blank-section img {
-        width: 230px;
-        flex-shrink: 0;
-    }
-
-    .text-block {
-        flex: 1;
-        min-width: 0;
-    }
-
-    .text-block h1 {
-        font-size: clamp(1.8rem, 3.4vw, 2.2rem);
-        line-height: 1.2;
-    }
-
-    .text-block h2 {
-        font-size: clamp(0.9rem, 1.7vw, 1.1rem);
-        margin-bottom: 20px;
-    }
-
-    .text-block p {
-        font-size: 0.82rem;
-        line-height: 1.65;
-        width: 100%;
-        margin-top: 20px;
-    }
+  
 
     .project-content {
         width: 90%;
@@ -1313,19 +1284,6 @@ RESPONSIVE
         flex: 0 0 min(48vw, 360px);
     }
 
-    .project-header {
-        flex: 0 0 180px;
-        width: 180px;
-    }
-
-    .project-header h2 {
-        font-size: 1.15rem;
-    }
-
-    .project-header p {
-        font-size: 0.7rem;
-        max-width: 180px;
-    }
 /* .mobile-section-menu {
     display: none !important;
 } */
@@ -1459,7 +1417,7 @@ RESPONSIVE
 }
 
 .mobile-section-menu a:hover {
-    color: #f5a52e;
+    color: #6C7094;
 }
 
 
@@ -1543,7 +1501,8 @@ RESPONSIVE
 }
 
 .about-list {
-    width: 100%;
+    width: 90%;
+    max-width: 1050px;
     margin: 0;
     box-sizing: border-box;
 }
